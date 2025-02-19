@@ -33,7 +33,7 @@ export const snow = <Snowflake size={45} color="#A0E7E5" strokeWidth={2} />;
 export const clearSky = <CloudSun size={45} color="#FFD700" strokeWidth={2} />;
 export const cloudy = <Cloudy size={45} color="#A9A9A9" strokeWidth={2} />;
 export const navigation = (
-	<Navigation size={35} color="#1E90FF" strokeWidth={2} />
+	<Navigation size={25} color="#1E90FF" strokeWidth={2} />
 );
 export const thermo = (
 	<ThermometerSun size={35} color="#FF4500" strokeWidth={2} />

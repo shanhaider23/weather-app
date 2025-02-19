@@ -68,8 +68,8 @@ function Temperature() {
 
 	return (
 		<div
-			className="pt-6 pb-5 px-4 border rounded-lg shadow-lg flex flex-col 
-        justify-between dark:bg-dark-grey  dark:shadow-none"
+			className="pt-6 pb-5 px-4 h-[29rem] border rounded-lg shadow-lg flex flex-col 
+        justify-between dark:bg-dark-grey  "
 		>
 			<p className="flex justify-between items-center">
 				<span className="font-medium">{currentDay}</span>
