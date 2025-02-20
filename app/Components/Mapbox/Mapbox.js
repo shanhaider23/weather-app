@@ -4,7 +4,12 @@ import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import "leaflet/dist/leaflet.css";
 import { useGlobalContext, useGlobalContextUpdate } from "@/app/context/globalContext";
-import { MapContainer, TileLayer, useMapEvents, useMap } from 'react-leaflet';
+// import { MapContainer, TileLayer, useMapEvents, useMap } from 'react-leaflet';
+
+const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), { ssr: false });
+const TileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), { ssr: false });
+const useMapEvents = dynamic(() => import("react-leaflet").then((mod) => mod.useMapEvents), { ssr: false });
+const useMap = dynamic(() => import("react-leaflet").then((mod) => mod.useMap), { ssr: false });
 
 // Dynamic import for Leaflet to avoid SSR issues
 const L = typeof window !== "undefined" ? require("leaflet") : null;
