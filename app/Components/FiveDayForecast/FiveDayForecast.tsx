@@ -60,7 +60,7 @@ function FiveDayForecast() {
 	return (
 		<div
 			className="pt-6 pb-5 px-4 flex-1 border rounded-lg flex flex-col
-        justify-between dark:bg-dark-grey shadow-lg"
+        justify-between dark:bg-dark-grey shadow-lg max-h-[750px]"
 		>
 			<div>
 				<h2 className="flex items-center gap-2 font-medium text-2xl">

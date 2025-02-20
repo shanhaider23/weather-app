@@ -17,7 +17,7 @@ function Wind() {
 
 	return (
 		<div
-			className="pt-6 pb-5 px-4 h-[14rem] border rounded-lg flex 
+			className="pt-6 pb-5 px-4 border rounded-lg flex 
     flex-col gap-3 dark:bg-dark-grey shadow-lg dark:shadow-none"
 		>
 			<h2 className="flex items-center gap-2 font-medium text-2xl">

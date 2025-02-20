@@ -33,7 +33,7 @@ export default function Home() {
 		<main className="mx-[1rem] lg:mx-[2rem] xl:mx-[6rem] 2xl:mx-[16rem] m-auto">
 			<Navbar />
 			<div className="pb-4 flex flex-col gap-4 md:flex-row">
-				<div className="flex flex-col gap-4 w-full min-w-[18rem] md:w-[35rem]">
+				<div className="flex flex-col gap-4 w-full min-w-[18rem] md:w-[35rem] ">
 					<Temperature />
 					<FiveDayForecast />
 				</div>
@@ -76,18 +76,19 @@ export default function Home() {
 				</div>
 			</div>
 
-			<footer className="py-4 flex justify-center pb-8">
-				<p className="footer-text text-sm flex items-center gap-1">
-					Design and Developed by:
-					<Image src={'/logo-white.svg'} alt="logo" width={20} height={20} />
+			<footer className="w-full py-4 flex justify-center pb-8">
+				<div className="text-gray-500 dark:text-gray-400 text-[10px] sm:text-xs md:text-sm flex justify-between gap-0 sm:gap-5 items-center flex-wrap w-full">
 					<a
 						href="https://shanehaider.dk"
 						target="_blank"
-						className=" text-green-300 font-bold"
+						className="text-center"
 					>
-						Shan-e-Haider Bukhari
+						Design and Developed by Shan-e-Haider Bukhari
 					</a>
-				</p>
+					<p className="text-center">
+						&copy; {new Date().getFullYear()} All rights reserved.
+					</p>
+				</div>
 			</footer>
 		</main>
 	);

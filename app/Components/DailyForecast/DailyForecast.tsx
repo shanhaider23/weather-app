@@ -7,6 +7,8 @@ import {
 	Carousel,
 	CarouselContent,
 	CarouselItem,
+	CarouselPrevious,
+	CarouselNext,
 } from '@/components/ui/carousel';
 import moment from 'moment';
 import { kelvinToCelsius } from '@/app/utils/misc';
@@ -39,7 +41,7 @@ function DailyForecast() {
 
 	if (todaysForecast.length < 1) {
 		return (
-			<Skeleton className="h-[14rem] w-full col-span-full sm-2:col-span-2 md:col-span-2 xl:col-span-2" />
+			<Skeleton className="w-full col-span-full sm-2:col-span-2 md:col-span-2 xl:col-span-2" />
 		);
 	}
 
@@ -62,7 +64,7 @@ function DailyForecast() {
 
 	return (
 		<div
-			className="pt-6 px-4 h-[14rem] border rounded-lg flex flex-col gap-8
+			className="pt-6 px-4 border rounded-lg flex flex-col gap-8
        dark:bg-dark-grey shadow-lg dark:shadow-lg col-span-full sm-2:col-span-2 md:col-span-2 xl:col-span-2"
 		>
 			<div className="h-full flex gap-10 overflow-hidden">
@@ -73,7 +75,7 @@ function DailyForecast() {
 						</h1>
 					</div>
 				) : (
-					<div className="w-full sha">
+					<div className="w-full ">
 						<Carousel>
 							<CarouselContent>
 								{todaysForecast.map(
@@ -95,6 +97,8 @@ function DailyForecast() {
 									}
 								)}
 							</CarouselContent>
+							<CarouselPrevious className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10" />
+							<CarouselNext className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10" />
 						</Carousel>
 					</div>
 				)}
