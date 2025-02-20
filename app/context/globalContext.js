@@ -43,7 +43,7 @@ export const GlobalContextProvider = ({ children }) => {
       const res = await axios.get(`api/fiveday?lat=${lat}&lon=${lon}`);
 
       setFiveDayForecast(res.data);
-      console.log(res.data, 'ddd')
+
     } catch (error) {
       console.error("Error fetching five day forecast data: ", error.message);
     }
