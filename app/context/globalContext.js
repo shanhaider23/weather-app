@@ -173,12 +173,14 @@ export const GlobalContextProvider = ({ children }) => {
         },
         (error) => {
           console.error("Error getting user location: ", error);
-          setActiveCityCoords([51.752021, -1.257726]); // Oxford as fallback
+          // Set your preferred default big city coordinates here
+          setActiveCityCoords([31.5497, 74.3436]); // Example: Lahore, Pakistan
         }
       );
     } else {
       console.error("Geolocation is not supported by this browser.");
-      setActiveCityCoords([51.752021, -1.257726]); // Oxford as fallback
+      // Fallback to Copenhagen
+      setActiveCityCoords([55.6761, 12.5683]);
     }
   }, []);
 

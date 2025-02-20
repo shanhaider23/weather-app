@@ -1,39 +1,29 @@
 const defaultStates = [
-  {
-    name: "Madrid",
-    country: "ES",
-    state: "Madrid",
-    lat: 40.4165,
-    lon: -3.7026,
-  },
-  {
-    name: "London",
-    country: "GB",
-    state: "England",
-    lat: 51.5074,
-    lon: 0.1278,
-  },
-  {
-    name: "New York",
-    country: "US",
-    state: "New York",
-    lat: 40.7128,
-    lon: -74.006,
-  },
-  {
-    name: "Sydney",
-    country: "AU",
-    state: "New South Wales",
-    lat: -33.8688197,
-    lon: 151.2092955,
-  },
-  {
-    name: "Barcelona",
-    country: "ES",
-    state: "Catalonia",
-    lat: 41.3828939,
-    lon: 2.1774322,
-  },
+	{
+		name: 'Lahore, Pakistan',
+		lat: 31.5497,
+		lon: 74.3436,
+	},
+	{
+		name: 'Karachi, Pakistan',
+		lat: 24.8607,
+		lon: 67.0011,
+	},
+	{
+		name: 'Copenhagen, Denmark',
+		lat: 55.6761,
+		lon: 12.5683,
+	},
+	{
+		name: 'Dubai, UAE',
+		lat: 25.276987,
+		lon: 55.296249,
+	},
+	{
+		name: 'Toronto, Canada',
+		lat: 43.65107,
+		lon: -79.347015,
+	},
 ];
 
 export default defaultStates;
