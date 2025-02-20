@@ -18,13 +18,20 @@ function FiveDayForecast() {
 		dailyData: {
 			main: { temp_min: number; temp_max: number };
 			dt: number;
+			weather: { main: string; icon: string }[];
 		}[]
 	) => {
 		let minTemp = Number.MAX_VALUE;
 		let maxTemp = Number.MIN_VALUE;
+		let weatherCondition = dailyData[0].weather[0].main;
+		let weatherIcon = dailyData[0].weather[0].icon;
 
 		dailyData.forEach(
-			(day: { main: { temp_min: number; temp_max: number }; dt: number }) => {
+			(day: {
+				main: { temp_min: number; temp_max: number };
+				dt: number;
+				weather: { main: string; icon: string }[];
+			}) => {
 				if (day.main.temp_min < minTemp) {
 					minTemp = day.main.temp_min;
 				}
@@ -38,13 +45,15 @@ function FiveDayForecast() {
 			day: unixToDay(dailyData[0].dt),
 			minTemp: kelvinToCelsius(minTemp),
 			maxTemp: kelvinToCelsius(maxTemp),
+			weatherCondition,
+			weatherIcon,
 		};
 	};
 
 	const dailyForecasts = [];
 
 	for (let i = 0; i < 40; i += 8) {
-		const dailyData = list.slice(i, i + 5);
+		const dailyData = list.slice(i, i + 8);
 		dailyForecasts.push(processData(dailyData));
 	}
 
@@ -55,7 +64,7 @@ function FiveDayForecast() {
 		>
 			<div>
 				<h2 className="flex items-center gap-2 font-medium text-2xl">
-					{calender} 5-Day Forecast for {city.name}
+					{calender} Five Days Forecast for {city.name}
 				</h2>
 
 				<div className="forecast-list pt-3">
@@ -63,9 +72,20 @@ function FiveDayForecast() {
 						return (
 							<div
 								key={i}
-								className="daily-forevast py-4 flex flex-col justify-evenly border-b-2"
+								className="daily-forecast py-4 flex flex-col justify-evenly border-b-2"
 							>
-								<p className="text-xl min-w-[3.5rem]">{day.day}</p>
+								<div className="flex justify-between items-center">
+									<p className="text-xl min-w-[3.5rem]">{day.day}</p>
+									<div className="flex items-center gap-2">
+										<img
+											src={`https://openweathermap.org/img/wn/${day.weatherIcon}.png`}
+											alt={day.weatherCondition}
+											className="w-10 h-10"
+										/>
+										<p className="text-sm">{day.weatherCondition}</p>
+									</div>
+								</div>
+
 								<p className="text-sm flex justify-between">
 									<span>(low)</span>
 									<span>(high)</span>
