@@ -5,7 +5,9 @@ import dynamic from "next/dynamic";
 import "leaflet/dist/leaflet.css";
 import { useGlobalContext, useGlobalContextUpdate } from "@/app/context/globalContext";
 import { MapContainer, TileLayer, useMapEvents, useMap } from 'react-leaflet';
-import L from 'leaflet';
+
+// Dynamic import for Leaflet to avoid SSR issues
+const L = typeof window !== "undefined" ? require("leaflet") : null;
 
 function Mapbox() {
   const { forecast } = useGlobalContext();
@@ -49,30 +51,26 @@ function Mapbox() {
     useMapEvents({
       click: (e) => {
         const { lat, lng } = e.latlng;
-
-        // Update coordinates to trigger weather data fetch
         setActiveCityCoords([lat, lng]);
 
-        // Open the popup with updated weather data
-        if (forecast && forecast.main && forecast.weather) {
-          L.popup()
-            .setLatLng([lat, lng])
-            .setContent(`
+        if (L) { // Check if Leaflet is available
+          const popupContent = forecast && forecast.main && forecast.weather
+            ? `
               <div class='map-box__popup-details'>
                 <h1>${city || 'Unknown location'}</h1>
                 <h2>Temperature: ${weather}</h2>
                 <h2>Condition: ${description || 'No data'}</h2>
               </div>
-            `)
-            .openOn(map);
-        } else {
-          L.popup()
-            .setLatLng([lat, lng])
-            .setContent(`
+            `
+            : `
               <div class='map-box__popup-details'>
                 <h1>Loading weather data...</h1>
               </div>
-            `)
+            `;
+
+          L.popup()
+            .setLatLng([lat, lng])
+            .setContent(popupContent)
             .openOn(map);
         }
       },
@@ -81,14 +79,16 @@ function Mapbox() {
     return null;
   };
 
+
   return (
-    <div className="flex-1 basis-[50%] border rounded-lg">
+    <div className="flex-1 basis-[50%] border rounded-lg ">
+      <h1 className="text-xl pt-2  pb-2 text-center">Tap on the Map for Local Weather</h1>
       <MapContainer
         center={[activeCityCords.lat, activeCityCords.lon]}
         zoom={13}
         scrollWheelZoom={false}
         className="rounded-lg m-4"
-        style={{ height: "100%", width: "100%" }}
+        style={{ height: "89%", width: "100%" }}
         whenCreated={(mapInstance) => setMap(mapInstance)}
       >
         <TileLayer

@@ -9,7 +9,7 @@ type ExtendedScreenshot = {
 export default function manifest(): MetadataRoute.Manifest {
 	return {
 		name: 'Weather',
-		short_name: 'weather',
+		short_name: 'Weather',
 		description: 'Best weather app',
 		start_url: '/',
 		scope: '/',
