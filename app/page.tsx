@@ -1,10 +1,11 @@
 'use client';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import AirPollution from './Components/AirPollution/AirPollution';
 import DailyForecast from './Components/DailyForecast/DailyForecast';
 import FeelsLike from './Components/FeelsLike/FeelsLike';
 import Humidity from './Components/Humidity/Humidity';
-import Mapbox from './Components/Mapbox/Mapbox';
+// import Mapbox from './Components/Mapbox/Mapbox';
 import Navbar from './Components/Navbar';
 import Population from './Components/Population/Population';
 import Pressure from './Components/Pressure/Pressure';
@@ -16,7 +17,9 @@ import Wind from './Components/Wind/Wind';
 import defaultStates from './utils/defaultStates';
 import FiveDayForecast from './Components/FiveDayForecast/FiveDayForecast';
 import { useGlobalContextUpdate } from './context/globalContext';
-
+const Mapbox = dynamic(() => import('./Components/Mapbox/Mapbox'), {
+	ssr: false, // This prevents Next.js from rendering the component server-side
+});
 export default function Home() {
 	const { setActiveCityCoords } = useGlobalContextUpdate();
 
