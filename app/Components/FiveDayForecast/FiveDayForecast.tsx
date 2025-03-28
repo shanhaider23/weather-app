@@ -60,7 +60,7 @@ function FiveDayForecast() {
 	return (
 		<div
 			className="pt-6 pb-5 px-4 flex-1 border rounded-lg flex flex-col
-        justify-between dark:bg-dark-grey shadow-lg max-h-[750px]"
+        justify-between dark:bg-dark-grey shadow-lg max-h-[650px]"
 		>
 			<div>
 				<h2 className="flex items-center gap-2 font-medium text-2xl">
@@ -85,11 +85,6 @@ function FiveDayForecast() {
 										<p className="text-sm">{day.weatherCondition}</p>
 									</div>
 								</div>
-
-								<p className="text-sm flex justify-between">
-									<span>(low)</span>
-									<span>(high)</span>
-								</p>
 
 								<div className="flex-1 flex items-center justify-between gap-4">
 									<p className="font-bold">{day.minTemp}°C</p>
