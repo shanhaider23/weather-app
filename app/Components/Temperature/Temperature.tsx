@@ -103,7 +103,7 @@ function Temperature() {
 		}
 
 		// Clear Sky with Time Check
-		if (weatherMain === 'Clear') {
+		if (weatherMain === 'Clear' || weatherMain === 'Clear Sky') {
 			if (hour >= 4 && hour < 7) return '/videos/sunrise.mp4';
 			if (hour >= 7 && hour < 12) return '/videos/morning.mp4';
 			if (hour >= 12 && hour < 16) return '/videos/midday.mp4';
