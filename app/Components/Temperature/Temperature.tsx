@@ -63,7 +63,6 @@ function Temperature() {
 				return '/videos/light-snow.mp4';
 			if (lowerDescription.includes('heavy snow'))
 				return '/videos/heavy-snow.mp4';
-			if (lowerDescription.includes('sleet')) return '/videos/sleet.mp4';
 			return '/videos/snow.mp4';
 		}
 
